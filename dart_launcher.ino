@@ -9,7 +9,7 @@
 #define DART_1 7
 #define DART_2 8
 #define DART_3 9
-#define FIRING 10
+#define FIRE_INDICATOR 10
 
 #define NOTE_E7 2638
 
@@ -28,12 +28,12 @@ void setup()
     pinMode(DART_1, OUTPUT);
     pinMode(DART_2, OUTPUT);
     pinMode(DART_3, OUTPUT);
-    pinMode(FIRING, OUTPUT);
+    pinMode(FIRE_INDICATOR, OUTPUT);
     digitalWrite(TONE_PIN, LOW);
     digitalWrite(DART_1, LOW);
     digitalWrite(DART_2, LOW);
     digitalWrite(DART_3, LOW);
-    digitalWrite(FIRING, LOW);
+    digitalWrite(FIRE_INDICATOR, LOW);
     attachInterrupt(digitalPinToInterrupt(BUTTON_PIN),
                     handle_button, CHANGE);
 }
@@ -71,7 +71,7 @@ void handle_button()
 
 void launch()
 {
-    digitalWrite(FIRING, HIGH);
+    digitalWrite(FIRE_INDICATOR, HIGH);
     tone(TONE_PIN, NOTE_E7, 100);
     delay(100);
     tone(TONE_PIN, NOTE_E7, 100);
@@ -87,5 +87,5 @@ void launch()
     digitalWrite(DART_3, HIGH);
     delay(30);
     digitalWrite(DART_3, LOW);
-    digitalWrite(FIRING, LOW);
+    digitalWrite(FIRE_INDICATOR, LOW);
 }
