@@ -18,9 +18,6 @@ volatile enum states { INIT, WAIT, FIRE } state;
 void handle_button();
 void launch();
 
-unsigned long current;
-unsigned long previous;
-
 void setup()
 {
     pinMode(BUTTON_PIN, INPUT);
